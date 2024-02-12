@@ -41,7 +41,7 @@ umd_courses <- read_rds("lab_01.rds")
 
 **Q1** Which department has the highest mean (average) number of seats for its classes? You need to show the department with the highest average first. Which one is the most surprising/interesting to you? **A1**
 
-**Chemistry with an average of 127.**
+**The highest mean has Engineering, Cooperative Education with 306.67 seats. The most suprising to me is Physics with an average of 63.57 seats. I would have expected it to have the same amount of seats as Engineering.**
 
 ```{r}
 umd_courses |>
@@ -62,23 +62,29 @@ umd_courses |>
   summarise(
   count_classes = n()
 ) |>
-  arrange (desc(count_classes))
+  arrange(desc(count_classes))
 ```
 
 **Q3** Count the number of courses for each instructor and department. Which instructor has taught the most? **A3**
 
-**Not available. We're not for sure. But the first person that is shown is Keith Yearwood with 61 classes.**
+**The first person that is shown is Keith Yearwood with 61 classes.**
 
 ```{r}
 ```
 
 **Q4** Given the results for Q3, what would have made it easier to find the answer? You don't have to know *how* to accomplish this; I want you to describe in words what would make the answer easier to see. How confident are you that the answer you got is the right one, and why? **A4**
 
-removing the NAs and TBAs.
+**Removing the NAs and TBAs.**
 
 **Q5** Take one of the questions you listed in the final question of the pre_lab and try to answer it here in code. If you don't know how to fully answer it, write what code you can and describe in words what else you would need to do. If you got an answer, is it interesting? **A5**
 
-Average number of seats in different department.
+What is the average number of seats across all departments?
 
 ```{r}
+umd_courses |> 
+  summarise(
+    avg_seats = mean(seats)
+  ) 
 ```
+
+**A5: The average number of seats across all departments is 43.14 seats.**
